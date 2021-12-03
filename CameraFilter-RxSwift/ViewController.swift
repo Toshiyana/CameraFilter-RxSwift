@@ -11,12 +11,14 @@ import RxSwift
 class ViewController: UIViewController {
 
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var applyFilterButton: UIButton!
     
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        applyFilterButton.isHidden = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,10 +33,33 @@ class ViewController: UIViewController {
         // by subscribing selectedPhoto, get image
         photosCVC.selectedPhoto.subscribe(onNext: { [weak self] photo in
             
-            self?.photoImageView.image = photo
+            DispatchQueue.main.async {
+                self?.updateUI(with: photo)
+            }
             
             // don't forget to dispose not to happen memory leaks
         }).disposed(by: disposeBag)
+    }
+    
+    private func updateUI(with image: UIImage) {
+        self.photoImageView.image = image
+        self.applyFilterButton.isHidden = false
+    }
+    
+    @IBAction private func applyFilterButtonPressed() {
+        
+        guard let sourceImage = photoImageView.image else {
+            return
+        }
+        
+        FilterService().applyFilter(to: sourceImage) { filteredImage in
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = filteredImage
+            }
+            
+        }
+        
     }
 
 }

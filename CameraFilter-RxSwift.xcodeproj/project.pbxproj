@@ -15,6 +15,7 @@
 		99079D65275540D2006D75CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99079D63275540D2006D75CA /* LaunchScreen.storyboard */; };
 		99079DB027575C4F006D75CA /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99079DAF27575C4F006D75CA /* PhotosCollectionViewController.swift */; };
 		99079DB227576F74006D75CA /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99079DB127576F74006D75CA /* PhotoCollectionViewCell.swift */; };
+		99079DB4275795D6006D75CA /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99079DB3275795D6006D75CA /* FilterService.swift */; };
 		F8DC7F274A897F66BC7F7483 /* Pods_CameraFilter_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C9D8FED468D327DC639A61 /* Pods_CameraFilter_RxSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		99079D66275540D2006D75CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99079DAF27575C4F006D75CA /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		99079DB127576F74006D75CA /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		99079DB3275795D6006D75CA /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		9D580B396129CEC698E8C339 /* Pods-CameraFilter-RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraFilter-RxSwift.release.xcconfig"; path = "Target Support Files/Pods-CameraFilter-RxSwift/Pods-CameraFilter-RxSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			children = (
 				99079D58275540CD006D75CA /* AppDelegate.swift */,
 				99079D5A275540CD006D75CA /* SceneDelegate.swift */,
+				99079DB3275795D6006D75CA /* FilterService.swift */,
 				99079D5C275540CD006D75CA /* ViewController.swift */,
 				99079DAF27575C4F006D75CA /* PhotosCollectionViewController.swift */,
 				99079DB127576F74006D75CA /* PhotoCollectionViewCell.swift */,
@@ -215,6 +218,7 @@
 				99079D5D275540CD006D75CA /* ViewController.swift in Sources */,
 				99079DB227576F74006D75CA /* PhotoCollectionViewCell.swift in Sources */,
 				99079D59275540CD006D75CA /* AppDelegate.swift in Sources */,
+				99079DB4275795D6006D75CA /* FilterService.swift in Sources */,
 				99079D5B275540CD006D75CA /* SceneDelegate.swift in Sources */,
 				99079DB027575C4F006D75CA /* PhotosCollectionViewController.swift in Sources */,
 			);
