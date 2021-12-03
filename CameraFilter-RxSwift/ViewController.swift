@@ -51,14 +51,25 @@ class ViewController: UIViewController {
         guard let sourceImage = photoImageView.image else {
             return
         }
+
+        // Use observable in filtering
+        // by subscribing filteredImage, get image
+        FilterService().applyFilter(to: sourceImage)
+            .subscribe(onNext: { filteredImage in
+                
+                DispatchQueue.main.async {
+                    self.photoImageView.image = filteredImage
+                }
+                
+            }).disposed(by: disposeBag)
         
-        FilterService().applyFilter(to: sourceImage) { filteredImage in
-            
-            DispatchQueue.main.async {
-                self.photoImageView.image = filteredImage
-            }
-            
-        }
+        // Not use observable in filtering
+//        FilterService().applyFilter(to: sourceImage) { filteredImage in
+//
+//            DispatchQueue.main.async {
+//                self.photoImageView.image = filteredImage
+//            }
+//        }
         
     }
 

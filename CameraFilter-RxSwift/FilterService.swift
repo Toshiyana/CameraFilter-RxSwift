@@ -5,9 +5,9 @@
 //  Created by Toshiyana on 2021/12/01.
 //
 
-import Foundation
 import UIKit
 import CoreImage
+import RxSwift
 
 class FilterService {
     
@@ -17,7 +17,23 @@ class FilterService {
         context = CIContext()
     }
     
-    func applyFilter(to inputImage: UIImage, completion: @escaping ((UIImage) -> ())) {
+    // we can be instead of returning a processed image, we will return an observable of UIImage.
+    func applyFilter(to inputImage: UIImage) -> Observable<UIImage> {
+        
+        // Using create function, create observable
+        return Observable<UIImage>.create { observer in
+            
+            self.applyFilter(to: inputImage) { filteredImage in
+                observer.onNext(filteredImage)
+            }
+            
+            return Disposables.create()
+        }
+        
+    }
+    
+    // This function is called in "func applyFilter(to inputImage: UIImage) -> Observable<UIImage> "
+    private func applyFilter(to inputImage: UIImage, completion: @escaping ((UIImage) -> ())) {
         
         let filter = CIFilter(name: "CICMYKHalftone")!
         filter.setValue(5.0, forKey: kCIInputWidthKey)
