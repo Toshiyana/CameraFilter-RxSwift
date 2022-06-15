@@ -29,7 +29,6 @@ class FilterService {
             
             return Disposables.create()
         }
-        
     }
     
     // This function is called in "func applyFilter(to inputImage: UIImage) -> Observable<UIImage> "

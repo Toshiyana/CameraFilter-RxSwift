@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         
         // selectedPhoto is observable (defined it in PhotosCVC)
         // by subscribing selectedPhoto, get image
+        // (以下、自分の解釈)
+        // "selectedPhoto"はPublishSubjectなので、イベント発生時の処理を定義と分離して記述可能
+        // これにより、PhotosCollectionViewControllerで定義していたが、処理は以下のようにViewControllerで記述できる。
+        // 今回はUIのupdateを行うために、ViewControllerで処理を記述している。
+        // RxSwiftを用いない場合、DelegateパターンでimageをPhotosCollectionViewControllerからViewControllerに渡して、処理を記述する方法が考えられる。
         photosCVC.selectedPhoto.subscribe(onNext: { [weak self] photo in
             
             DispatchQueue.main.async {
